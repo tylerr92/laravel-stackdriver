@@ -4,12 +4,10 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Diederik van den Burger",
-            "email": "diederik@glue.group",
-            "homepage": "https://glue.group"
+            "name": "Tyler Radlick"
         }
     ],
-    "homepage": "https://github.com/gluedev/laravel-stackdriver",
+    "homepage": "https://github.com/tylerr92/laravel-stackdriver",
     "keywords": [
         "Laravel",
         "Google",
@@ -19,12 +17,11 @@
         "Error Reporting"
     ],
     "require": {
-        "illuminate/support": ">=5.7",
+        "illuminate/support": ">=5.0",
         "google/cloud-error-reporting": "^0.12.1",
         "google/cloud-logging": "^1.14",
         "opencensus/opencensus": "^0.5.2",
-        "opencensus/opencensus-exporter-stackdriver": "^0.1",
-        "php": ">=7.1"
+        "opencensus/opencensus-exporter-stackdriver": "^0.1"
     },
     "require-dev": {
         "phpunit/phpunit": "~7.0",
