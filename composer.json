@@ -1,5 +1,5 @@
 {
-    "name": "gluedev/laravel-stackdriver",
+    "name": "tylerr92/laravel-stackdriver",
     "description": "Enables logging, tracing and error reporting to Google Stackdriver for the Laravel framework",
     "license": "MIT",
     "authors": [
