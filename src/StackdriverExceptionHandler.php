@@ -1,6 +1,6 @@
 <?php
 
-namespace GlueDev\Laravel\Stackdriver;
+namespace tylerr92\Laravel\Stackdriver;
 
 use Exception;
 use Google\Cloud\Core\Report\SimpleMetadataProvider;

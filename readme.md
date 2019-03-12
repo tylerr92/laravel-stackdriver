@@ -16,13 +16,13 @@ Requires PHP >= 7.1
 Via Composer
 
 ``` bash
-composer require gluedev/laravel-stackdriver
+composer require tylerr92/laravel-stackdriver
 ```
 
 And publish the config file
 
 ``` bash
-php artisan vendor:publish --provider="GlueDev\Laravel\Stackdriver\StackdriverServiceProvider"
+php artisan vendor:publish --provider="tylerr92\Laravel\Stackdriver\StackdriverServiceProvider"
 ```
 
 ## Usage
@@ -58,7 +58,7 @@ Other than changing the values in the config file, logging needs no additional s
 Error reporting requires you to add the following to the `report` function in your `Exceptions/handler.php` 
 
 ``` php
-use GlueDev\Laravel\Stackdriver\StackdriverExceptionHandler;
+use tylerr92\Laravel\Stackdriver\StackdriverExceptionHandler;
 
 /**  
  * Report or log an exception.
@@ -111,21 +111,10 @@ Please see [contributing.md](contributing.md) for details and a todo list.
 
 ## Credits
 
-- [Diederik van den Burger (GlueDev)][link-author]
+- Maintained By [Tyler Radlick]
+- Forked from [Diederik van den Burger (GlueDev)]
 - [All Contributors][link-contributors]
 
 ## License
 
 license. Please see the [license file](license.md) for more information.
-
-[ico-version]: https://img.shields.io/packagist/v/gluedev/laravel-stackdriver.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/gluedev/laravel-stackdriver.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/gluedev/laravel-stackdriver/master.svg?style=flat-square
-[ico-styleci]: https://styleci.io/repos/12345678/shield
-
-[link-packagist]: https://packagist.org/packages/gluedev/laravel-stackdriver
-[link-downloads]: https://packagist.org/packages/gluedev/laravel-stackdriver
-[link-travis]: https://travis-ci.org/gluedev/laravel-stackdriver
-[link-styleci]: https://styleci.io/repos/12345678
-[link-author]: https://github.com/gluedev
-[link-contributors]: ../../contributors]

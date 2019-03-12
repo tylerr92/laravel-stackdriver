@@ -1,7 +1,7 @@
 <?php
 
 
-namespace GlueDev\Laravel\Stackdriver;
+namespace tylerr92\Laravel\Stackdriver;
 
 use Illuminate\Support\ServiceProvider;
 
