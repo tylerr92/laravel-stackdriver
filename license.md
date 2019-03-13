@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) Glue B.V.
+Copyright (c) Glue B.V. & tylerr92
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
