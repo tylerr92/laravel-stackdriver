@@ -1,10 +1,6 @@
 
 # Laravel Stackdriver
 
-[![Latest Version on Packagist][ico-version]][link-packagist]
-[![Total Downloads][ico-downloads]][link-downloads]
-[![Build Status][ico-travis]][link-travis]
-
 Enables logging, tracing and error reporting to Google Stackdriver for Laravel.
 Requires PHP >= 7.1
 
