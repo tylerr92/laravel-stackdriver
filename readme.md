@@ -37,6 +37,7 @@ The first variable listed has priority over the others.
 I suggest you configure the following ENVs in your .env file
 
 ``` bash
+STACKDRIVER_LOGNAME="error-log"
 STACKDRIVER_ENABLED="true"
 STACKDRIVER_LOGGING_ENABLED="true"
 STACKDRIVER_TRACING_ENABLED="true"
