@@ -87,10 +87,18 @@ class Stackdriver
 
         $this->app['log']->listen(function () {
             $args = func_get_args();
+            $logDetails = new \stdClass();
+            $logDetails->level = $args[0];
+            $logDetails->message = $args[1];
+            if ($args[2] == null) {
+                $args[2] = ['No Context Provided'];
+            }
+            $logDetails->context = $args[2];
+
             $this->app['Stackdriver\Logger']->log(
-                $args->level = $args[0],
-                $args->message = $args[1],
-                $args->context = array($args[2])
+                $logDetails->level,
+                $logDetails->message,
+                $logDetails->context
             );
         });
     }
