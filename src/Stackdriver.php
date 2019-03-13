@@ -86,11 +86,11 @@ class Stackdriver
         }
 
         $this->app['log']->listen(function () {
-            $args = array_first(func_get_args());
+            $args = func_get_args();
             $this->app['Stackdriver\Logger']->log(
-                $args->level,
-                $args->message,
-                $args->context
+                $args->level = $args[0],
+                $args->message = $args[1],
+                $args->context = array($args[2])
             );
         });
     }
