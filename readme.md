@@ -38,6 +38,18 @@ STACKDRIVER_ERROR_REPORTING_ENABLED=true
 
 The first variable listed has priority over the others.
 
+I suggest you configure the following ENVs in your .env file
+
+``` bash
+STACKDRIVER_ENABLED="true"
+STACKDRIVER_LOGGING_ENABLED="true"
+STACKDRIVER_TRACING_ENABLED="true"
+STACKDRIVER_ERROR_REPORTING_ENABLED="true"
+STACKDRIVER_KEY_FILE_PATH="path/to/key/file.json"
+GOOGLE_CLOUD_PROJECT"project-id-14555"
+IS_BATCH_DAEMON_RUNNING="true"
+```
+
 ### Authentication
 At the time of writing, Google prefers you to authenticate using a service account. It will throw a warning otherwise, which you can (but probably should not) disable by setting `SUPPRESS_GCLOUD_CREDS_WARNING=true`
 
