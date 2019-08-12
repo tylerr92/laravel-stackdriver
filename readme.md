@@ -1,25 +1,24 @@
 
 # Laravel Stackdriver
 
-[![Latest Version on Packagist][ico-version]][link-packagist]
-[![Total Downloads][ico-downloads]][link-downloads]
-[![Build Status][ico-travis]][link-travis]
-
 Enables logging, tracing and error reporting to Google Stackdriver for Laravel.
 Requires PHP >= 7.1
+
+## Screenshots
+<img src="storage/screenshots/screenshot_1.png" alt="Tracing" width="300"/> <img src="storage/screenshots/screenshot_2.png" alt="Error reporting" width="300"/>
 
 ## Installation
 
 Via Composer
 
 ``` bash
-composer require gluedev/laravel-stackdriver
+composer require tylerr92/laravel-stackdriver
 ```
 
 And publish the config file
 
 ``` bash
-php artisan vendor:publish --provider="GlueDev\Laravel\Stackdriver\StackdriverServiceProvider"
+php artisan vendor:publish --provider="tylerr92\Laravel\Stackdriver\StackdriverServiceProvider"
 ```
 
 ## Usage
@@ -35,19 +34,40 @@ STACKDRIVER_ERROR_REPORTING_ENABLED=true
 
 The first variable listed has priority over the others.
 
+I suggest you configure the following ENVs in your .env file
+
+``` bash
+STACKDRIVER_LOGNAME="error-log"
+STACKDRIVER_ENABLED="true"
+STACKDRIVER_LOGGING_ENABLED="true"
+STACKDRIVER_TRACING_ENABLED="true"
+STACKDRIVER_ERROR_REPORTING_ENABLED="true"
+STACKDRIVER_KEY_FILE_PATH="path/to/key/file.json"
+GOOGLE_CLOUD_PROJECT"project-id-14555"
+IS_BATCH_DAEMON_RUNNING="true"
+```
+
 ### Authentication
 At the time of writing, Google prefers you to authenticate using a service account. It will throw a warning otherwise, which you can (but probably should not) disable by setting `SUPPRESS_GCLOUD_CREDS_WARNING=true`
 
 Create a service account with the appropriate roles attached to it and add it to your project. Make sure not to commit this file to git, because of security. You can then specify the path to the service account JSON file in the `keyFilePath` or in the `STACKDRIVER_KEY_FILE_PATH` environment variable.
 
-### Tracing and logging
-Other than changing the values in the config file, tracing and logging needs no additional setup.
+### Tracing
+Tracing requires the Opencensus module to be installed. As we use docker, this is how we install it:
+
+``` Dockerfile
+RUN pecl install opencensus-alpha
+RUN docker-php-ext-enable opencensus
+``` 
+
+### Logging
+Other than changing the values in the config file, logging needs no additional setup.
 
 ### Error reporting
 Error reporting requires you to add the following to the `report` function in your `Exceptions/handler.php` 
 
 ``` php
-use GlueDev\Laravel\Stackdriver\StackdriverExceptionHandler;
+use tylerr92\Laravel\Stackdriver\StackdriverExceptionHandler;
 
 /**  
  * Report or log an exception.
@@ -82,6 +102,8 @@ stderr_logfile = /dev/stderr
 stderr_logfile_maxbytes = 0
 ```
 
+You also need to tell Google that the daemon is running. This is done by setting the `IS_BATCH_DAEMON_RUNNING=true`.
+
 And that is it!
 
 ## Change log
@@ -98,21 +120,10 @@ Please see [contributing.md](contributing.md) for details and a todo list.
 
 ## Credits
 
-- [Diederik van den Burger (GlueDev)][link-author]
+- Maintained By [Tyler Radlick]
+- Forked from [Diederik van den Burger (GlueDev)]
 - [All Contributors][link-contributors]
 
 ## License
 
 license. Please see the [license file](license.md) for more information.
-
-[ico-version]: https://img.shields.io/packagist/v/gluedev/laravel-stackdriver.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/gluedev/laravel-stackdriver.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/gluedev/laravel-stackdriver/master.svg?style=flat-square
-[ico-styleci]: https://styleci.io/repos/12345678/shield
-
-[link-packagist]: https://packagist.org/packages/gluedev/laravel-stackdriver
-[link-downloads]: https://packagist.org/packages/gluedev/laravel-stackdriver
-[link-travis]: https://travis-ci.org/gluedev/laravel-stackdriver
-[link-styleci]: https://styleci.io/repos/12345678
-[link-author]: https://github.com/gluedev
-[link-contributors]: ../../contributors]

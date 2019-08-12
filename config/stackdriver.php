@@ -8,6 +8,11 @@ return [
     'enabled' => env('STACKDRIVER_ENABLED', false),
 
     /**
+     * The name of the log file in stackdriver. Logs appear under the global resource
+     */
+    'logname' => env('STACKDRIVER_LOGNAME', 'error-log'),
+
+    /**
      * There are multiple way to authenticate in order to send data to Google Stackdriver
      * See: https://github.com/googleapis/google-cloud-php/blob/master/AUTHENTICATION.md
      */

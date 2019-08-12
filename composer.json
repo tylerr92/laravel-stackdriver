@@ -1,15 +1,13 @@
 {
-    "name": "gluedev/laravel-stackdriver",
+    "name": "tylerr92/laravel-stackdriver",
     "description": "Enables logging, tracing and error reporting to Google Stackdriver for the Laravel framework",
     "license": "MIT",
     "authors": [
         {
-            "name": "Diederik van den Burger",
-            "email": "diederik@glue.group",
-            "homepage": "https://glue.group"
+            "name": "Tyler Radlick"
         }
     ],
-    "homepage": "https://github.com/gluedev/laravel-stackdriver",
+    "homepage": "https://github.com/tylerr92/laravel-stackdriver",
     "keywords": [
         "Laravel",
         "Google",
@@ -34,19 +32,24 @@
     },
     "autoload": {
         "psr-4": {
-            "GlueDev\\Laravel\\Stackdriver\\": "src/"
+            "tylerr92\\Laravel\\Stackdriver\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "GlueDev\\Laravel\\Stackdriver\\Tests\\": "tests"
+            "tylerr92\\Laravel\\Stackdriver\\Tests\\": "tests"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "GlueDev\\Laravel\\Stackdriver\\StackdriverServiceProvider"
+                "tylerr92\\Laravel\\Stackdriver\\StackdriverServiceProvider"
             ]
         }
+    },
+    "archive": {
+        "exclude": [
+            "storage/screenshots"
+        ]
     }
 }

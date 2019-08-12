@@ -1,6 +1,6 @@
 <?php
 
-namespace GlueDev\Laravel\Stackdriver;
+namespace tylerr92\Laravel\Stackdriver;
 
 use Google\Cloud\Logging\LoggingClient;
 use Google\Cloud\Logging\PsrLogger;
@@ -86,11 +86,12 @@ class Stackdriver
         }
 
         $this->app['log']->listen(function () {
-            $args = array_first(func_get_args());
+            $logDetails = array_first(func_get_args());
+
             $this->app['Stackdriver\Logger']->log(
-                $args->level,
-                $args->message,
-                $args->context
+                $logDetails->level,
+                $logDetails->message,
+                $logDetails->context
             );
         });
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace GlueDev\Laravel\Stackdriver;
+namespace tylerr92\Laravel\Stackdriver;
 
 use Exception;
 use Google\Cloud\Core\Report\SimpleMetadataProvider;
@@ -38,7 +38,7 @@ class StackdriverExceptionHandler
             ['metadataProvider' => $metadata],
             config('stackdriver.error_reporting.psrOptions')
         );
-        $psrLogger = $logging->psrLogger('error-log', $psrOptions);
+        $psrLogger = $logging->psrLogger(config('stackdriver.logname'), $psrOptions);
 
         Bootstrap::init($psrLogger);
         Bootstrap::exceptionHandler($exception);
