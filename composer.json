@@ -1,6 +1,6 @@
 {
     "name": "tylerr92/laravel-stackdriver",
-    "version": "2.0.3",
+    "version": "2.0.4",
     "description": "Enables logging, tracing and error reporting to Google Stackdriver for the Laravel framework",
     "license": "MIT",
     "authors": [
@@ -18,7 +18,7 @@
         "Error Reporting"
     ],
     "require": {
-        "illuminate/support": "^6.*|7.*|8.*",
+        "illuminate/support": "^6.*",
         "google/cloud-error-reporting": "^0.16.2",
         "google/cloud-logging": "^1.14",
         "opencensus/opencensus": "^0.6.2",
