@@ -53,12 +53,14 @@ At the time of writing, Google prefers you to authenticate using a service accou
 Create a service account with the appropriate roles attached to it and add it to your project. Make sure not to commit this file to git, because of security. You can then specify the path to the service account JSON file in the `keyFilePath` or in the `STACKDRIVER_KEY_FILE_PATH` environment variable.
 
 ### Tracing
-Tracing requires the Opencensus module to be installed. As we use docker, this is how we install it:
+Tracing requires the OpenCencus module to be installed. As we use docker, this is how we install it:
 
 ``` Dockerfile
 RUN pecl install opencensus-alpha
 RUN docker-php-ext-enable opencensus
 ``` 
+
+**Please note**: If you run in to an `opencensus.so: undefined symbol: ZVAL_DESTRUCTOR` error after installing the OpenCencus extension, it is recommended to build the extension yourself, following [these instructions](https://github.com/GlueDev/laravel-stackdriver/issues/6#issuecomment-584157568).
 
 ### Logging
 Other than changing the values in the config file, logging needs no additional setup.
@@ -108,15 +110,7 @@ And that is it!
 
 ## Change log
 
-Please see the [changelog](changelog.md) for more information on what has changed recently.
-
-## Testing
-
-Right now, tests are not (yet) included in this package. They are however on the roadmap.
-
-## Contributing
-
-Please see [contributing.md](contributing.md) for details and a todo list.
+Please see the [changelog](CHANGELOG.md) for more information on what has changed recently.
 
 ## Credits
 
