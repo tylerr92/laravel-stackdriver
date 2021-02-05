@@ -9,6 +9,7 @@ use OpenCensus\Trace\Tracer;
 use OpenCensus\Trace\Integrations\Laravel;
 use OpenCensus\Trace\Integrations\Mysql;
 use OpenCensus\Trace\Integrations\PDO;
+use Illuminate\Support\Arr;
 
 class Stackdriver
 {
@@ -60,6 +61,11 @@ class Stackdriver
             return;
         }
 
+        $ignoredPaths = config('stackdriver.tracing.ignored_paths', []);
+        if ($this->app['request']->is($ignoredPaths)) {
+            return;
+        }
+
         // Enable OpenCensus extension integrations
         Laravel::load();
         Mysql::load();
@@ -86,12 +92,11 @@ class Stackdriver
         }
 
         $this->app['log']->listen(function () {
-            $logDetails = array_first(func_get_args());
-
+            $args = Arr::first(func_get_args());
             $this->app['Stackdriver\Logger']->log(
-                $logDetails->level,
-                $logDetails->message,
-                $logDetails->context
+                $args->level,
+                $args->message,
+                $args->context
             );
         });
     }
